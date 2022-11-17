@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
-
-export const Button = ( {children,  ...props }: PropsWithChildren<{className?:string}> )=>{
-  return (
-    <button {...props}>{children}</button>
-  );
-}
+export const Button = ({
+  children,
+  ...props
+}: PropsWithChildren<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>>) => {
+  return <button {...props}>{children}</button>;
+};

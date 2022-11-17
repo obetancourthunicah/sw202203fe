@@ -15,6 +15,7 @@ const Cards = () => {
           voluptas reprehenderit quam repellat sunt similique, eius praesentium
           tenetur dolor quasi autem.
         </p>
+        <Button>Boton Secundario</Button>
       </Card>
     </>
   );
