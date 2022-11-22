@@ -26,12 +26,22 @@ const TodoList = () => {
     };
     setTodoList([...todoList, newTodo]);
   };
+  const toggleCompleted = ( id: number )=>{
+    const newTodoList = todoList.map( o => {
+      if (o.id === id) {
+        o.completed = !o.completed;
+      }
+      return o;
+    });
+    setTodoList(newTodoList);
+  }
 
   return (
     <>
       <NewTodoForm addTodo={addTodo} />
       Filtrado por: {filterBy}
       <TodoListContainer
+        updateTodoItem = {toggleCompleted}
         todos={
           filterBy === "Todos"
             ? todoList

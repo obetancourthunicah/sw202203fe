@@ -1,3 +1,5 @@
+import TodoListItem from "./TodoListItem";
+
 export interface ITodo {
   id: number;
   text: string;
@@ -5,13 +7,15 @@ export interface ITodo {
 }
 interface IPropsTodoListContainer {
   todos: ITodo[];
+  updateTodoItem: (id:number)=>void;
 }
 const TodoListContainer = ({
   todos = [],
+  updateTodoItem
 }:IPropsTodoListContainer) => {
   return (
     <section className="TodoListContainer">
-      {JSON.stringify(todos, null, 2)}
+      {todos.map(o=><TodoListItem listItem={o} updateTodoItem={updateTodoItem}/>)}
     </section>
   );
 }
