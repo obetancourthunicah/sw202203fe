@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useLoginMutation } from "@store/Services/Security";
 import { setSecData } from "@store/Slices/secSlice";
 import Page from "@components/Page";
-import { PrimaryButton } from "@components/Buttons/PrimaryButton";
+import { PrimaryButton } from "@components/Buttons";
 const Login = () => {
   const [login, { isLoading, status, error }] = useLoginMutation();
   const dispatch = useDispatch();
