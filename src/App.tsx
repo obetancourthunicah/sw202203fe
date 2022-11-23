@@ -1,12 +1,8 @@
 import './App.css';
-//import Home from '@views/Home';
-//import Cards from '@views/Cards';
-import TodoList from '@views/TodoList';
+import Routes from './Router';
 function App() {
   return (
-    <>
-      <TodoList />
-    </>
+      <Routes />
   );
 }
 

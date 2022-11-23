@@ -5,7 +5,7 @@ export const PrimaryButton = ({
   children,
   className = "",
   ...props
-}: PropsWithChildren<{ className?: string }>) => {
+}: PropsWithChildren<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>>) => {
   const primaryClassName = [className, "primaryButton"].join(" ");
   return (
     <Button {...props} className={primaryClassName}>
