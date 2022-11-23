@@ -8,6 +8,7 @@ module.exports = function override(config) {
       '@hooks': path.resolve(__dirname, 'src/hooks'),
       '@views': path.resolve(__dirname, 'src/views'),
       '@components': path.resolve(__dirname, 'src/components'),
+      '@store': path.resolve(__dirname, 'src/store'),
     },
   };
   return config;
