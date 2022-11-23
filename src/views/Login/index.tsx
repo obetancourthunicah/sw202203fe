@@ -22,6 +22,7 @@ const Login = () => {
     <Page>
       <h1>Login</h1>
       <p>Implement a Login Page</p>
+      {error && <p>{JSON.stringify(error)}</p>}
       <PrimaryButton onClick={handleClick}>Login</PrimaryButton>
     </Page>
   );
