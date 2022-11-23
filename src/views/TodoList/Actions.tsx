@@ -1,10 +1,8 @@
-import Buttons from "@components/Buttons";
+import { Button } from "@components/Buttons";
 
 interface IPropsActions {
   actionHandler: (action: string) => void;
 }
-
-const { Button } = Buttons;
 
 const Actions = ({ actionHandler = (action: string) => {} }: IPropsActions) => {
   const clickHandler = (e: unknown) => {
