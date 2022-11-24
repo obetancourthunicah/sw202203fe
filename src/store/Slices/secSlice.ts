@@ -18,14 +18,6 @@ export interface IUserWithToken extends IUser {
   token: string;
 }
 
-// export interface IUserWithToken {
-//   name: string;
-//   email: string;
-//   avatar: string;
-//   token: string;
-//   _id: string;
-// }
-
 const initialState: IUserWithToken = {
   name: "",
   email: "",
