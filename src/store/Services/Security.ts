@@ -7,7 +7,7 @@ export const securityApi = createApi({
   endpoints: (builder) => ({
     signIn: builder.mutation<IUserWithToken, ICredentials>({
       query: (credentials) => ({
-        url: "signin",
+        url: "signin",// en mi api tengo esta ruta con el nombre de signin en lugar de login
         method: "POST",
         body: credentials,
         headers: {
@@ -17,7 +17,7 @@ export const securityApi = createApi({
     }),
     signUp: builder.mutation({
       query: (credentials) => ({
-        url: "signup",
+        url: "signup",// en mi api tengo esta ruta con el nombre de signup en lugar de signin
         method: "POST",
         body: credentials,
         headers: {
