@@ -1,30 +1,31 @@
-import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { ICredentials, IUserWithToken } from "@store/Slices/secSlice";
 
 export const securityApi = createApi({
-  reducerPath: 'securityApi',
-  baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:3001/security'}),
+  reducerPath: "securityApi",
+  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001/security" }),
   endpoints: (builder) => ({
-    login: builder.mutation({
+    signIn: builder.mutation<IUserWithToken, ICredentials>({
       query: (credentials) => ({
-        url: 'login',
-        method: 'POST',
+        url: "signin",
+        method: "POST",
         body: credentials,
         headers: {
-          apikey: 'cuandoLosGatosNoEstan',
+          apikey: "cuandoLosGatosNoEstan",
         },
-      })
+      }),
     }),
-    signin: builder.mutation({
+    signUp: builder.mutation({
       query: (credentials) => ({
-        url: 'signin',
-        method: 'POST',
+        url: "signup",
+        method: "POST",
         body: credentials,
         headers: {
-          apikey: 'cuandoLosGatosNoEstan',
+          apikey: "cuandoLosGatosNoEstan",
         },
-      })
+      }),
     }),
   }),
 });
 
-export const {useLoginMutation, useSigninMutation} = securityApi;
+export const { useSignInMutation, useSignUpMutation } = securityApi;
