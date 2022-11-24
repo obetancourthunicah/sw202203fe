@@ -1,15 +1,24 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
-interface SecState {
-  name: string;
+
+export interface ICredentials{
   email: string;
-  avatar: string;
-  token: string;
-  _id: string;
+  password: string;
 }
 
-const initialState: SecState = {
+
+export interface IUser {
+  email: string;
+  name: string;
+  avatar?: string;
+  _id: string;
+}
+export interface IUserWithToken extends IUser {
+  token: string;
+}
+
+const initialState: IUserWithToken = {
   name: "",
   email: "",
   avatar: "",
@@ -17,18 +26,18 @@ const initialState: SecState = {
   _id: "",
 };
 
-export const secSlice = createSlice({
-  name: "sec",
+export const userSlice = createSlice({
+  name: "user",
   initialState,
   reducers: {
-   setSecData: (state, action: PayloadAction<SecState>) => {
+   setUserData: (state, action: PayloadAction<IUserWithToken>) => {
       state.name = action.payload.name;
       state.email = action.payload.email;
       state.avatar = action.payload.avatar;
       state.token = action.payload.token;
       state._id = action.payload._id;
    },
-   resetSecData: (state) => {
+   resetUserData: (state) => {
       state.name = "";
       state.email = "";
       state.avatar = "";
@@ -38,6 +47,6 @@ export const secSlice = createSlice({
   },
 });
 
-export const { setSecData, resetSecData } = secSlice.actions;
-export const selectAuth = (state: RootState) => state.sec;
-export default secSlice.reducer;
+export const { setUserData , resetUserData } = userSlice.actions;
+export const selectAuth = (state: RootState) => state.user;
+export default userSlice.reducer;
