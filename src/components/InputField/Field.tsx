@@ -4,7 +4,7 @@ const Field = ({
   labelText = "",
   type = "text",
   value = "",
-  onChange = () => { },
+  onChange = (e:React.ChangeEvent<HTMLInputElement>) => { },
   ...rest
 }) => {
   return (

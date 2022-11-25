@@ -6,7 +6,7 @@ const FieldSelect = ({
   options = [],
   valueField = "value",
   textField = "text",
-  onChange = () => { },
+  onChange = (e: React.ChangeEvent<HTMLSelectElement>) => { },
   ...rest
 }) => {
   return (

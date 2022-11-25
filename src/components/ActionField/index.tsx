@@ -1,8 +1,12 @@
 import { PropsWithChildren } from 'react';
 import './ActionsField.css';
-const ActionField = ({ children } : PropsWithChildren) => {
+interface IActionFieldProps {
+  align?: 'left' | 'right' | 'center';
+}
+const ActionField = ({align, children } : PropsWithChildren<IActionFieldProps>) => {
+  const className = ['action', align].join(' ');
   return (
-    <section className="action">
+    <section className={className}>
       {children}
     </section>
   );

@@ -9,15 +9,12 @@ section.action{
   background-color: transparent;
 }
 
-section.action button{
-  padding:0.75rem 1rem;
-  background-color: transparent;
-  border-radius: 27px;
-  border: none;
-  border: 1px solid #e6e6e6;
-  transition: background-color 0.2s ease-in-out;
+section.action.right{
+  justify-content: flex-end;
 }
-
-section.action button:hover{
-  background-color: #e6e6e6;
+section.action.left{
+  justify-content: flex-start;
+}
+section.action.center{
+  justify-content: center;
 }

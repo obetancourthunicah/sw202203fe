@@ -21,20 +21,20 @@ export const secSlice = createSlice({
   name: "sec",
   initialState,
   reducers: {
-   setSecData: (state, action: PayloadAction<SecState>) => {
+    setSecData: (state, action: PayloadAction<SecState>) => {
       state.name = action.payload.name;
       state.email = action.payload.email;
       state.avatar = action.payload.avatar;
       state.token = action.payload.token;
       state._id = action.payload._id;
-   },
-   resetSecData: (state) => {
+    },
+    resetSecData: (state) => {
       state.name = "";
       state.email = "";
       state.avatar = "";
       state.token = "";
       state._id = "";
-   }
+    },
   },
 });
 

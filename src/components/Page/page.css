@@ -19,5 +19,6 @@
   min-height: 100vh;
 }
 .withNavBar .content {
-  min-height: calc(100vh - 4rem);
+  margin-top:0.1rem;
+  min-height: calc(100vh - 4.1rem);
 }
