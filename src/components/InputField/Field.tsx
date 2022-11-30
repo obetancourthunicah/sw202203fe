@@ -1,5 +1,5 @@
 import './Field.css';
-const Field = ({
+const Field  = ({
   name = "",
   labelText = "",
   type = "text",

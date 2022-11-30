@@ -1,28 +1,27 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { useLoginMutation } from "@store/Services/Security";
-import { setSecData } from "@store/Slices/secSlice";
 
 import Page from "@components/Page";
 import { Field } from "@components/InputField";
 import { PrimaryButton } from "@components/Buttons";
 import ActionField from "@components/ActionField";
-const Login = () => {
-  const [login, { isLoading, status, error, ...mutRest }] = useLoginMutation();
-  const dispatch = useDispatch();
-  const Navigator = useNavigate();
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleClick = async () => {
-    const  data = await login({ email, password }).unwrap();
-    console.log(data);
-    dispatch(setSecData(data));
-    Navigator("/home");
-  }
-  console.log("Mutation Rest", JSON.stringify(mutRest, null , 2));
+import ErrorField from "@components/ErrorField";
+export interface ILoginUXProps {
+  email: string;
+  setEmail: (email: string) => void;
+  password: string;
+  setPassword: (password: string) => void;
+  error: any;
+  handleClick: () => void;
+}
+const LoginUX = (
+  {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    error,
+    handleClick
+  } : ILoginUXProps
+) => {
   return (
     <Page pageTitle="Login" useAbsoluteCenter>
       <section style={{minWidth:"480px", marginTop:"1rem"}}>
@@ -41,7 +40,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        {error && <p>{JSON.stringify(error)}</p>}
+        {error && <ErrorField>{error?.data?.error}</ErrorField>}
         <ActionField align="right">
           <PrimaryButton onClick={handleClick}>Iniciar Sesión</PrimaryButton>
         </ActionField>
@@ -50,4 +49,4 @@ const Login = () => {
   );
 }
 
-export default Login;
+export default LoginUX;

@@ -1,6 +1,7 @@
 import BarChart from "@components/Charts/BarChart";
 import TimeLineChart from "@components/Charts/TimeLineChart";
 import LineChart from "@components/Charts/LineChart";
+import PieChart from "@components/Charts/PieChart";
 import Page from "@components/Page";
 const ChartsExamples = () => {
   return (
@@ -10,13 +11,26 @@ const ChartsExamples = () => {
         width={200}
         height={200}
         showYAxis
-        backgroundColor="#ccc"
+        backgroundColor="#eee"
         data={[
           ["Happy", 100],
           ["BirthDay", 90],
           ["To You", 60],
         ]}
-        colors={["#ff0000", "#00ff00", "#0000ff"]}
+        colors={["#3F38F5", "#24A805", "#A8450D"]}
+      />
+      <h2>Pie Chart</h2>
+      <PieChart
+        width={600}
+        height={400}
+        showYAxis
+        backgroundColor="#eee"
+        data={[
+          ["Happy", 100],
+          ["BirthDay", 90],
+          ["To You", 60],
+        ]}
+        colors={["#3F38F5", "#24A805", "#A8450D"]}
       />
       <h2>TimeLine Chart</h2>
       <TimeLineChart

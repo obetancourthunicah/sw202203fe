@@ -1,26 +1,22 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useLoginMutation } from "@store/Services/Security";
-import { setSecData } from "@store/Slices/secSlice";
+import { useSigninMutation } from "@store/Services/Security";
 
-import LoginUX from "./LoginUx";
+import SignUp from "./SignUp";
 const Login = () => {
-  const [login, { isLoading, status, error, ...mutRest }] = useLoginMutation();
-  const dispatch = useDispatch();
+  const [signin, { isLoading, status, error, ...mutRest }] = useSigninMutation();
   const Navigator = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleClick = async () => {
-    const  data = await login({ email, password }).unwrap();
+    const  data = await signin({ email, password }).unwrap();
     console.log(data);
-    dispatch(setSecData(data));
-    Navigator("/home");
+    Navigator("/login");
   }
   return (
-    <LoginUX
+    <SignUp
       email={email}
       setEmail={setEmail}
       password={password}
