@@ -10,6 +10,13 @@ export interface ICashFlow {
   userId: string;
 }
 
+export interface INewCashFlow {
+  type: string;
+  date: string;
+  amount: number;
+  description: string;
+}
+
 export interface IGetAllCashFlowResponse {
   total: number;
   totalPages: number;
@@ -30,13 +37,29 @@ export const cashFlowApi = createApi({
       }
     }
   }),
+  tagTypes: ["CashFlow"],
   endpoints: (builder) => ({
     allCashFlow: builder.query({
       query: ({page = 1, items = 10}) => ({
         url: `?page=${page}&items=${items}`,
-      })
+      }),
+      providesTags: ["CashFlow"]
+    }),
+    cashFlowById: builder.query({
+      query: (id: string) => `byindex/${id}`,
+      providesTags: ["CashFlow"]
+    }),
+    newCashFlow: builder.mutation({
+      query: (body:INewCashFlow)=>{
+        return {
+          url: "new",
+          method: "POST",
+          body
+        }
+      },
+      invalidatesTags: ["CashFlow"]
     })
   })
 });
 
-export const { useAllCashFlowQuery } = cashFlowApi;
+export const { useAllCashFlowQuery, useCashFlowByIdQuery, useNewCashFlowMutation } = cashFlowApi;

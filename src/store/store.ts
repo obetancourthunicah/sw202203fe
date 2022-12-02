@@ -23,7 +23,8 @@ export const store = configureStore({
 });
 
 store.subscribe(() => {
-  localStorage.setItem("reduxState", JSON.stringify(store.getState()));
+  const { sec } = store.getState();
+  localStorage.setItem("reduxState", JSON.stringify({sec}));
 });
 
 setupListeners(store.dispatch);

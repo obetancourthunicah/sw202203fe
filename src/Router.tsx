@@ -9,8 +9,10 @@ import Login from "@views/Login";
 import SignUp from "@views/SignUp";
 import Home from "@views/Home";
 import CashFlow from "@views/CashFlow";
+import CashFlowNew from "@views/CashFlowNew";
 import ChartsExamples from "@views/ChartsExamples";
 import NotFound from "@views/NotFound";
+import CashFlowDetail from "@views/CashFlowDetail";
 
 const Routes = () => {
   return (
@@ -33,6 +35,22 @@ const Routes = () => {
           element={
             <PrivateRoute allowedRoles={["public","admin"]}>
               <CashFlow />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/cashflow/new"
+          element={
+            <PrivateRoute allowedRoles={["public","admin"]}>
+              <CashFlowNew />
+            </PrivateRoute>
+          }
+        />
+         <Route
+          path="/cashflow/:id"
+          element={
+            <PrivateRoute allowedRoles={["public","admin"]}>
+              <CashFlowDetail />
             </PrivateRoute>
           }
         />
