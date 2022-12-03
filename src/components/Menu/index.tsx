@@ -52,6 +52,16 @@ const Menu = () => {
               <BiLogOut/>&nbsp;Cerrar Sesión
             </a>
           </li>
+           <li>
+            <a href="/cashflow" onClick={onClickHandler}>
+              <BiLogOut/>&nbsp;CashFlow
+            </a>
+          </li>
+           <li>
+            <a href="/admin/cashflow" onClick={onClickHandler}>
+              <BiLogOut/>&nbsp;Admin CashFlow
+            </a>
+          </li>
         </ul>
       </nav>
     );

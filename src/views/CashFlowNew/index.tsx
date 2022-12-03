@@ -8,7 +8,7 @@ const CashFlowNew = () => {
     type: "INCOME",
     description: "",
     amount: 0,
-    date: new Date().toISOString(),
+    date: new Date().toString(),
   });
   const [newCashFlow, { isLoading, error }] = useNewCashFlowMutation();
   const Navigate = useNavigate();
@@ -18,7 +18,7 @@ const CashFlowNew = () => {
   }
   const onSubmitHandler = async () => {
     try {
-      const data = await newCashFlow(form).unwrap;
+      const data = await newCashFlow(form).unwrap();
       console.log(data);
       Navigate("/cashflow");
     } catch (error) {

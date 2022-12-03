@@ -13,6 +13,7 @@ import CashFlowNew from "@views/CashFlowNew";
 import ChartsExamples from "@views/ChartsExamples";
 import NotFound from "@views/NotFound";
 import CashFlowDetail from "@views/CashFlowDetail";
+import CashFlowAdmin from "@views/CashFlowAdmin";
 
 const Routes = () => {
   return (
@@ -51,6 +52,14 @@ const Routes = () => {
           element={
             <PrivateRoute allowedRoles={["public","admin"]}>
               <CashFlowDetail />
+            </PrivateRoute>
+          }
+        />
+         <Route
+          path="/admin/cashflow"
+          element={
+            <PrivateRoute allowedRoles={["public","admin"]}>
+              <CashFlowAdmin />
             </PrivateRoute>
           }
         />

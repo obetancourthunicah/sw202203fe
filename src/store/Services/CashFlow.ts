@@ -49,6 +49,10 @@ export const cashFlowApi = createApi({
       query: (id: string) => `byindex/${id}`,
       providesTags: ["CashFlow"]
     }),
+    allCashFlowAdmin: builder.query({
+      query: ()=>"/all",
+      providesTags: ["CashFlow"]
+    }),
     newCashFlow: builder.mutation({
       query: (body:INewCashFlow)=>{
         return {
@@ -62,4 +66,4 @@ export const cashFlowApi = createApi({
   })
 });
 
-export const { useAllCashFlowQuery, useCashFlowByIdQuery, useNewCashFlowMutation } = cashFlowApi;
+export const { useAllCashFlowQuery, useCashFlowByIdQuery, useAllCashFlowAdminQuery , useNewCashFlowMutation } = cashFlowApi;
